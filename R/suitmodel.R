@@ -16,7 +16,7 @@
 
 
 
-suitmodel <- function(form, lu, data, sub = NULL, resolution,...){
+suitmodel <- function(form, lu, data, sub = NULL, resolution, decay, ...){
 
   #Sample random subset of data to build model on
   if(!is.null(sub)){
@@ -31,6 +31,6 @@ suitmodel <- function(form, lu, data, sub = NULL, resolution,...){
 
   #Pass pre-determined formula
   f <- as.formula(paste("counts", "~", form))
-  suit_model <- nnet::multinom(f, data = data_sub, ...)
+  suit_model <- nnet::multinom(f, data = data_sub, decay = decay, ...)
   suit_model
 }

@@ -25,7 +25,8 @@ allocation <- function(lu, sm, params, dmd, ln, constraint, pa = NULL){
   no_change <-  1:K%in%params$no_change
 
   #Turn intiital land use into integer counts
-  p_t0 <- integerify(lu, resolution = resolution)
+  #p_t0 <- integerify(lu, resolution = resolution)
+  p_t0 <- round(lu * resolution)
 
   #Convert demand time series to integer counts
   supply_t0 <- colSums(p_t0) #Initial land use
