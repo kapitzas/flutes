@@ -7,6 +7,10 @@
 integerify(x, z = NULL, resolution = resolution, no_decrease = NULL)
 }
 \arguments{
+\item{x}{Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.}
+
+\item{z}{Matrix containing initial supply before iterations begin. This option is required in the \code{allocation} function to adjust the total supply to be allocated by the supply from classes that are not supposed to decrease.}
+
 \item{resolution}{The resolution at which fractions are represented as integer.}
 
 \item{no_decrease}{\code{TRUE/FALSE} vector, flagging if a land use is allowed to decrease any where in the landscape. For example, It might be desirable to prevent decreases of Urban land to reflect the high initial investment, the cost of disbanding urban land and the high socio-economic value of urban land.}

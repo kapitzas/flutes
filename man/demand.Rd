@@ -11,16 +11,15 @@ demand(landuse, ts, path = NULL, k, type = "mean")
 
 \item{ts}{Output time steps. When \code{ts} is longer than the length of the provided time series, demands for missing time steps are interpolated.}
 
+\item{path}{Default \code{path = NULL}. Output path to write result to (.rds format).}
+
 \item{k}{Number of land use classes.}
 
-\item{form}{Model formula (only the right hand side).}
+\item{type}{Should the landscape mean fraction be calculated (option \emph{mean}) or the number of cells changing in each class counted (option \emph{sum})?}
 }
 \value{
-A matrix containing observed and interpolated average demand for different land use classes.
+A matrix containing observed and interpolated average demand for different land use classes. Each column corresponds to a land use class, each row to a time step.
 }
 \description{
 Extracts aggregated (landscape-wide average)  land use changes from observed land use time series for model validation.
-}
-\examples{
-
 }

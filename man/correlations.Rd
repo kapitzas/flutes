@@ -15,17 +15,14 @@ correlations(covs, thresh = 0.7, sub = inds)
 
 \item{mask}{a raster object containing the study area mask. NA values are outside of study area, non-NA values are within study area and must be of same length as the number of rows in the provided land use data matrix.}
 
-\item{enr}{When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors (see ref).}
+\item{enr}{When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors (as described in main manuscript accompanying this package).}
 }
 \value{
-A correlation matrix containing only selected predictors (all values hsould be < 0.8).
+A correlation matrix containing only selected predictors.
 }
 \description{
 Automatically reduces a data set based on estimated correlations.
 }
 \details{
 The function uses the Spearman's Rank Correlation coefficient. The covariate chosen to be removed from a correlated pair is the one with the higher maximum correlation coefficient with any other included covariate to maximise the amount of independent information in the final predictor set.
-}
-\examples{
-
 }

@@ -2,14 +2,17 @@
 #'
 #' Allocates changes in land use demand across the landscape
 #'
-#' @param lu A matrix containing land use of current time step
+#' @param lu Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.
 #' @param sm A matrix containing the predicted land use suitability model for the current time step
 #' @param params A list of model parameters `resolution`, `max_dev`, `growth`, `no_change` (see details).
 #' @param dmd Matrix containing demand changes to be allocated. The first row is the current land use supply, the second row the land use demand for the next time step.
-#' @param ln A matrix containing neighbourhood variables of the current time step.
+#' @param ln A matrix containing neighbourhood variables of the current time step. These can be estimated by using the `neighbourhood` function.
 #' @param constraint `TRUE` or `FALSE`. When true, constraints are applied (see details).
-#' @return A matrix containing predicted land use fractions.
+#' @param pa `NULL` or raster layer containing protected areas (where the raster contains 0) from which changes are masked. All other areas (where the raster is 1) are allowed to change.
+#' @return A matrix containing predicted land use fractions (same format as input matrix)
 #'
+#' @details Model parameters that can be specified with `params` argument: _max_dev_ is the % deviation allowed between allocated supply and prescribed demand. _resolution_ is the integer count to which fractions are converted for multinomial model. i.e. a fraction of 0.2 would become round(0.2 * resolution). _growth_ is the % of the landscape (in terms of cells) where land use was 0 in a land use and contained a fraction of that land-use in the next time step, averaged across the observed time series. _no_change_ is a vector containing the indices of land use types that are not allowed to change at all. Applied constraints when `constraint = TRUE`, most cells on which land use in a class is 0 are masked from increases in that class to the next time step. Only a small subset of cells for which this is the case are allowed to change. The number of these cells is determined by _growth_, which can be estimated from historic data, literature review or expert advice.
+
 #' @export
 
 

@@ -2,14 +2,12 @@
 #'
 #' Extracts aggregated (landscape-wide average)  land use changes from observed land use time series for model validation.
 #'
-#' @param form Model formula (only the right hand side).
 #' @param landuse Matrix containing observed land use time series. Rows are cells, columns are land use classes + time steps.
 #' @param ts Output time steps. When `ts` is longer than the length of the provided time series, demands for missing time steps are interpolated.
 #' @param k Number of land use classes.
-#'
-#' @return A matrix containing observed and interpolated average demand for different land use classes.
-#'
-#' @examples
+#' @param type Should the landscape mean fraction be calculated (option _mean_) or the number of cells changing in each class counted (option _sum_)?
+#' @param path Default `path = NULL`. Output path to write result to (.rds format).
+#' @return A matrix containing observed and interpolated average demand for different land use classes. Each column corresponds to a land use class, each row to a time step.
 #'
 #' @export
 

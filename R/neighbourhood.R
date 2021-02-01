@@ -6,15 +6,13 @@
 #' @param cols Columns (land use classes) to apply neighbourhood function to
 #' @param weights A list of weight matrices for each land use to which the neighbourhood function is applied (same length as cols)
 #' @param mask a raster object containing the study area mask. NA values are outside of study area, non-NA values are within study area and must be of same length as the number of rows in the provided land use data matrix.
-#' @param enr When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors (see ref).
-#' 
-#' @return A matrix of neighbourhood values of the same dimensions as \code{lu}.
+#' @param enr When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors.
+#'
+#' @return A matrix of neighbourhood values of the same dimensions and structure as \code{lu}.
 #'
 #' @examples
 #'
 #' @export
-
-
 
 neighbourhood <- function(lu, cols, weights, mask, ..., enr = F, suffix = NULL){
   if(length(which(!is.na(mask[]))) != nrow(lu)) stop("mask and land use not same length")

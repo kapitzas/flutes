@@ -2,14 +2,16 @@
 % Please edit documentation in R/suitmodel.R
 \name{suitmodel}
 \alias{suitmodel}
-\title{suitability}
+\title{suitmodel}
 \usage{
-suitmodel(form, lu, data, sub = NULL, resolution, ...)
+suitmodel(form, lu, data, sub = NULL, resolution, decay, ...)
 }
 \arguments{
 \item{form}{Model formula (only the right hand side).}
 
-\item{lu}{Matrix containing land use data}
+\item{lu}{Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.}
+
+\item{data}{Model covariates. Each column is a covariate, rows correspond to same cells as in \code{lu}.}
 
 \item{sub}{Size of subset (default \code{sub = NULL}) of data on which model is built.}
 
@@ -21,7 +23,10 @@ suitmodel(form, lu, data, sub = NULL, resolution, ...)
 A nnet multinomial model object
 }
 \description{
-Estimates parameters of multinomial, multi-class suitability model
+Estimates parameters of multinomial, multi-class suitability model.
+}
+\details{
+The function first converts the input matrix to integer representation by sampling from a multinomial distribution and using provided land use fractions as probability vectors. Parameters are estimated on these integers.
 }
 \examples{
 
