@@ -7,11 +7,11 @@
 integerify(x, z = NULL, resolution = resolution, no_decrease = NULL)
 }
 \arguments{
-\item{x}{Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.}
+\item{x}{Matrix containing data set to be integerified, typically land use data in fractional representation. Columns are classes, rows are cells. Each row sums to 1.}
 
-\item{z}{Matrix containing initial supply before iterations begin. This option is required in the \code{allocation} function to adjust the total supply to be allocated by the supply from classes that are not supposed to decrease.}
+\item{z}{Matrix containing initial land use supply before iterations begin. This option is required in the \code{allocation} function to deduct the supply from classes that are not supposed to decrease from the total supply to be allocated in each iteration.}
 
-\item{resolution}{The resolution at which fractions are represented as integer.}
+\item{resolution}{The resolution at which fractions are represented as integer (see details).}
 
 \item{no_decrease}{\code{TRUE/FALSE} vector, flagging if a land use is allowed to decrease any where in the landscape. For example, It might be desirable to prevent decreases of Urban land to reflect the high initial investment, the cost of disbanding urban land and the high socio-economic value of urban land.}
 }
@@ -20,4 +20,7 @@ A matrix containing land use fractions in integer representation. Each row sums 
 }
 \description{
 Converts land use fractions into integer representation, using multinomial draws.
+}
+\details{
+Integers are sampled from a multinomial distribution using land use fractions as probability vector. Instead of summing to 1, sampled integers on each cell sum to \code{resolution}. For example, when \code{resolution = 10000} a fraction of 0.2 would approximate a value of 2000, including some very small stochasticity from the multinomial draw.
 }

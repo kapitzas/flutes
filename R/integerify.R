@@ -2,12 +2,13 @@
 #'
 #' Converts land use fractions into integer representation, using multinomial draws.
 #'
-#' @param resolution The resolution at which fractions are represented as integer.
+#' @param resolution The resolution at which fractions are represented as integer (see details).
 #' @param no_decrease `TRUE/FALSE` vector, flagging if a land use is allowed to decrease any where in the landscape. For example, It might be desirable to prevent decreases of Urban land to reflect the high initial investment, the cost of disbanding urban land and the high socio-economic value of urban land.
-#' @param x Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.
-#' @param z Matrix containing initial supply before iterations begin. This option is required in the `allocation` function to adjust the total supply to be allocated by the supply from classes that are not supposed to decrease.
+#' @param x Matrix containing data set to be integerified, typically land use data in fractional representation. Columns are classes, rows are cells. Each row sums to 1.
+#' @param z Matrix containing initial land use supply before iterations begin. This option is required in the `allocation` function to deduct the supply from classes that are not supposed to decrease from the total supply to be allocated in each iteration.
 #' @return A matrix containing land use fractions in integer representation. Each row sums to `resolution`.
 #'
+#' @details Integers are sampled from a multinomial distribution using land use fractions as probability vector. Instead of summing to 1, sampled integers on each cell sum to `resolution`. For example, when `resolution = 10000` a fraction of 0.2 would approximate a value of 2000, including some very small stochasticity from the multinomial draw.
 #' @export
 
 

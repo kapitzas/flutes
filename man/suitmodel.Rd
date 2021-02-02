@@ -4,12 +4,12 @@
 \alias{suitmodel}
 \title{suitmodel}
 \usage{
-suitmodel(form, lu, data, sub = NULL, resolution, decay, ...)
+suitmodel(form, lu, data, sub = NULL, resolution, ...)
 }
 \arguments{
-\item{form}{Model formula (only the right hand side).}
+\item{form}{Character string containing the right-hand side (model covariates) of the model formula.}
 
-\item{lu}{Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.}
+\item{lu}{Matrix containing fractional land use data. Columns are classes, rows are cells. Each row sums to 1.}
 
 \item{data}{Model covariates. Each column is a covariate, rows correspond to same cells as in \code{lu}.}
 
@@ -17,10 +17,10 @@ suitmodel(form, lu, data, sub = NULL, resolution, decay, ...)
 
 \item{resolution}{The resolution of the integer representation of proivided land use fractions (necessary in multinomial models)}
 
-\item{...}{Further parameters passed to nnet::multinom}
+\item{...}{Further parameters passed to \code{nnet::multinom}}
 }
 \value{
-A nnet multinomial model object
+A \code{nnet} multinomial model object
 }
 \description{
 Estimates parameters of multinomial, multi-class suitability model.

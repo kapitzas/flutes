@@ -7,7 +7,7 @@
 correlations(covs, thresh = 0.7, sub = inds)
 }
 \arguments{
-\item{covs}{A data matrix}
+\item{covs}{Covariates to be considered. Each column is a covariate, rows correspond to cells.}
 
 \item{thresh}{Spearman's Rank correlation coefficient}
 
@@ -24,5 +24,5 @@ A correlation matrix containing only selected predictors.
 Automatically reduces a data set based on estimated correlations.
 }
 \details{
-The function uses the Spearman's Rank Correlation coefficient. The covariate chosen to be removed from a correlated pair is the one with the higher maximum correlation coefficient with any other included covariate to maximise the amount of independent information in the final predictor set.
+The function uses the Spearman's Rank Correlation coefficient. The covariate chosen to be removed from a correlated pair is the one with the higher maximum correlation coefficient with any other included covariate, in order to maximise the amount of independent information in the final predictor set.
 }

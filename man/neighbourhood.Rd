@@ -15,10 +15,10 @@ neighbourhood(lu, cols, weights, mask, ..., enr = F, suffix = NULL)
 
 \item{mask}{a raster object containing the study area mask. NA values are outside of study area, non-NA values are within study area and must be of same length as the number of rows in the provided land use data matrix.}
 
-\item{enr}{When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors (see ref).}
+\item{enr}{When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors.}
 }
 \value{
-A matrix of neighbourhood values of the same dimensions as \code{lu}.
+A matrix of neighbourhood values of the same dimensions and structure as \code{lu}.
 }
 \description{
 Applies neighbourhood function to data

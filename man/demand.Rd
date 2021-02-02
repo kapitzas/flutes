@@ -7,9 +7,9 @@
 demand(landuse, ts, path = NULL, k, type = "mean")
 }
 \arguments{
-\item{landuse}{Matrix containing observed land use time series. Rows are cells, columns are land use classes + time steps.}
+\item{landuse}{Matrix containing observed land use time series. Rows correspond to cells, each column corresponds to a class and time step. This is the format in which the study's preprocessing script outputs the observed land use time series data.}
 
-\item{ts}{Output time steps. When \code{ts} is longer than the length of the provided time series, demands for missing time steps are interpolated.}
+\item{ts}{Output time steps. When \code{ts} is longer than the length of the provided time series, demands for missing time steps are interpolated (linearly).}
 
 \item{path}{Default \code{path = NULL}. Output path to write result to (.rds format).}
 

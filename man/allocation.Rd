@@ -7,19 +7,19 @@
 allocation(lu, sm, params, dmd, ln, constraint, pa = NULL)
 }
 \arguments{
-\item{lu}{Matrix containing land use data. Columns are classes, rows are cells. Each row sums to 1.}
+\item{lu}{Matrix containing fractional land use data. Columns are classes, rows are cells. Each row sums to 1.}
 
-\item{sm}{A matrix containing the predicted land use suitability model for the current time step}
+\item{sm}{A matrix containing the predicted land use suitability model for the current time step.}
 
-\item{params}{A list of model parameters \code{resolution}, \code{max_dev}, \code{growth}, \code{no_change} (see details).}
+\item{params}{A list of model parameters \emph{resolution}, \emph{max_dev}, \emph{growth}, \emph{no_change} (see details).}
 
-\item{dmd}{Matrix containing demand changes to be allocated. The first row is the current land use supply, the second row the land use demand for the next time step.}
+\item{dmd}{Matrix containing demand changes to be allocated. The first row is the current land use supply, the second row the land use demand for the next time step. Output of \code{fliutes::demand}.}
 
-\item{ln}{A matrix containing neighbourhood variables of the current time step. These can be estimated by using the \code{neighbourhood} function.}
+\item{ln}{A matrix containing neighbourhood variables of the current time step. These can be estimated by using the \code{flutes::neighbourhood} function.}
 
 \item{constraint}{\code{TRUE} or \code{FALSE}. When true, constraints are applied (see details).}
 
-\item{pa}{\code{NULL} or raster layer containing protected areas (where the raster contains 0) from which changes are masked. All other areas (where the raster is 1) are allowed to change.}
+\item{pa}{default is \code{pa = NULL} or raster layer containing protected areas (where the raster contains 0) from which changes are masked. All other areas (where the raster is 1) are allowed to change.}
 }
 \value{
 A matrix containing predicted land use fractions (same format as input matrix)

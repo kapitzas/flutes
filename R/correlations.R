@@ -2,7 +2,7 @@
 #'
 #' Automatically reduces a data set based on estimated correlations.
 #'
-#' @param covs A data matrix
+#' @param covs Covariates to be considered. Each column is a covariate, rows correspond to cells.
 #' @param thresh Spearman's Rank correlation coefficient
 #' @param subs number of rows to randomly sample.
 #' @param mask a raster object containing the study area mask. NA values are outside of study area, non-NA values are within study area and must be of same length as the number of rows in the provided land use data matrix.
@@ -10,7 +10,7 @@
 #'
 #' @return A correlation matrix containing only selected predictors.
 #'
-#' @details The function uses the Spearman's Rank Correlation coefficient. The covariate chosen to be removed from a correlated pair is the one with the higher maximum correlation coefficient with any other included covariate to maximise the amount of independent information in the final predictor set.
+#' @details The function uses the Spearman's Rank Correlation coefficient. The covariate chosen to be removed from a correlated pair is the one with the higher maximum correlation coefficient with any other included covariate, in order to maximise the amount of independent information in the final predictor set.
 #'
 #'
 #' @export
