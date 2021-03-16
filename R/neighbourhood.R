@@ -20,11 +20,10 @@ neighbourhood <- function(lu, cols, weights, mask, ..., enr = F, suffix = NULL, 
   inds <- which(!is.na(getValues(mask)))
   if(class(lu) == "matrix"){
     if(length(length(inds) != nrow(lu))) stop("NA not synched")
-
   }
   if(class(lu) == "RasterStack"){
     if(length(inds) != length(which(!is.na(lu[[1]][])))) stop("NA not synched")
-    lu <- as.data.frame(lu)[inds,]
+    lu <- as.matrix(lu)[inds,]
   }
 
 
