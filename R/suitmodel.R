@@ -11,8 +11,7 @@
 #'
 #' @return A `nnet` multinomial model object
 #' @details The function first converts the input matrix to integer representation by sampling from a multinomial distribution and using provided land use fractions as probability vectors. Parameters are estimated on these integers.
-#' @examples
-#'
+#' @import raster
 #' @export
 
 

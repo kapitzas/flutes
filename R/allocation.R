@@ -12,7 +12,7 @@
 #' @return A matrix containing predicted land use fractions (same format as input matrix)
 #'
 #' @details Model parameters that can be specified with `params` argument: _max_dev_ is the % deviation allowed between allocated supply and prescribed demand. _resolution_ is the integer count to which fractions are converted for multinomial model. i.e. a fraction of 0.2 would become round(0.2 * resolution). _growth_ is the % of the landscape (in terms of cells) where land use was 0 in a land use and contained a fraction of that land-use in the next time step, averaged across the observed time series. _no_change_ is a vector containing the indices of land use types that are not allowed to change at all. Applied constraints when `constraint = TRUE`, most cells on which land use in a class is 0 are masked from increases in that class to the next time step. Only a small subset of cells for which this is the case are allowed to change. The number of these cells is determined by _growth_, which can be estimated from historic data, literature review or expert advice.
-
+#' @import wrswoR
 #' @export
 
 

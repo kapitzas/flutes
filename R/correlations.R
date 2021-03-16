@@ -12,7 +12,6 @@
 #'
 #' @details The function uses the Spearman's Rank Correlation coefficient. The covariate chosen to be removed from a correlated pair is the one with the higher maximum correlation coefficient with any other included covariate, in order to maximise the amount of independent information in the final predictor set.
 #'
-#'
 #' @export
 
 correlations <- function(covs, thresh = 0.7, sub = inds) {

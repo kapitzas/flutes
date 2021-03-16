@@ -8,7 +8,7 @@
 #' @param type Should the landscape mean fraction be calculated (option _mean_) or the number of cells changing in each class counted (option _sum_)?
 #' @param path Default `path = NULL`. Output path to write result to (.rds format).
 #' @return A matrix containing observed and interpolated average demand for different land use classes. Each column corresponds to a land use class, each row to a time step.
-#'
+#' @import raster
 #' @export
 
 demand <- function(landuse, ts, path = NULL, k, type = "mean"){

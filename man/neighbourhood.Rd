@@ -34,6 +34,3 @@ A matrix of neighbourhood values of the same dimensions and structure as \code{l
 \description{
 Applies neighbourhood function to data
 }
-\examples{
-
-}

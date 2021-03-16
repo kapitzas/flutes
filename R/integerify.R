@@ -11,7 +11,6 @@
 #' @details Integers are sampled from a multinomial distribution using land use fractions as probability vector. Instead of summing to 1, sampled integers on each cell sum to `resolution`. For example, when `resolution = 10000` a fraction of 0.2 would approximate a value of 2000, including some very small stochasticity from the multinomial draw.
 #' @export
 
-
 #Integerify function
 integerify <- function (x, z = NULL,  resolution = resolution, no_decrease = NULL) {
 

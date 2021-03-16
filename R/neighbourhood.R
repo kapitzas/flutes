@@ -11,7 +11,7 @@
 #'
 #' @return A matrix of neighbourhood values of the same dimensions and structure as \code{lu}.
 #'
-#' @examples
+#' @import raster
 #'
 #' @export
 
