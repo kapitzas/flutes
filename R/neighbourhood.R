@@ -23,7 +23,7 @@ neighbourhood <- function(lu, cols, weights, mask, ..., enr = F, suffix = NULL, 
   }
   if(class(lu) == "RasterStack"){
     if(length(inds) != length(which(!is.na(lu[[1]][])))) stop("NA not synched")
-    lu <- as.matrix(lu)[inds,]
+    lu <- raster::as.data.frame(lu)[inds,]
   }
 
 
