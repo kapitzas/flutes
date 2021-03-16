@@ -19,13 +19,13 @@
 allocation <- function(lu, sm, params, dmd, ln, constraint, pa = NULL){
 
   #number of land use classes and number of cells
-  k <- ncol(lu)
+  K <- ncol(lu)
   n <- nrow(lu)
 
   resolution <- params$resolution
   max_dev <- params$max_dev
   growth <- params$growth
-  no_change <-  1:k%in%params$no_change
+  no_change <-  1:K%in%params$no_change
 
   #Turn intiital land use into integer counts
   #p_t0 <- integerify(lu, resolution = resolution)
