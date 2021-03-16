@@ -4,10 +4,19 @@
 \alias{neighbourhood}
 \title{neihgbourhood}
 \usage{
-neighbourhood(lu, cols, weights, mask, ..., enr = F, suffix = NULL)
+neighbourhood(
+  lu,
+  cols,
+  weights,
+  mask,
+  ...,
+  enr = F,
+  suffix = NULL,
+  format = "matrix"
+)
 }
 \arguments{
-\item{lu}{land use data matrix. Each column represents a land use class, each row a cell in the landscape}
+\item{lu}{land use data matrix or RasterStack object. Each column or layer represents a land use class.}
 
 \item{cols}{Columns (land use classes) to apply neighbourhood function to}
 
@@ -16,6 +25,8 @@ neighbourhood(lu, cols, weights, mask, ..., enr = F, suffix = NULL)
 \item{mask}{a raster object containing the study area mask. NA values are outside of study area, non-NA values are within study area and must be of same length as the number of rows in the provided land use data matrix.}
 
 \item{enr}{When \code{enr=TRUE}, calculated neihbourhood values are returned as enrichment factors.}
+
+\item{format}{character string, default is \code{matrix}. When \code{format = "stack"}, neighbourhood layers are returned as raster stack.}
 }
 \value{
 A matrix of neighbourhood values of the same dimensions and structure as \code{lu}.
