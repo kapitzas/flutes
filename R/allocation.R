@@ -24,6 +24,7 @@ allocation <- function(lu, sm, params, dmd, ln, constraint, pa = NULL){
 
   resolution <- params$resolution
   max_dev <- params$max_dev
+  max_iter <- params$max_iter
   growth <- params$growth
   no_change <-  1:K%in%params$no_change
 
@@ -78,7 +79,7 @@ allocation <- function(lu, sm, params, dmd, ln, constraint, pa = NULL){
   }
 
   # Iterative allocation
-  while (any(dev_diff > max_dev)) {
+  while (any(dev_diff > max_dev) & count < max_iter) {
 
     #Counter increment
     count <- count + 1
