@@ -79,7 +79,7 @@ allocation <- function(lu, sm, params, dmd, ln, constraint, pa = NULL){
   }
 
   # Iterative allocation
-  while (any(dev_diff > max_dev) & count < max_iter) {
+  while (any(dev_diff > max_dev)) {
 
     #Counter increment
     count <- count + 1
