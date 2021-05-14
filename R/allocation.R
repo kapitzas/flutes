@@ -136,6 +136,10 @@ allocation <- function(lu, sm, params, dmd, ln, constraint, pa = NULL){
     dev_diff[which(is.na(dev_diff))] <- 0
 
     cat("\r", paste0("Iteration: ", count, "    "), "Deviation from target per class [%]: ", paste(round(dev_diff, 3), sep = " "))
+    if (count == max_iter){
+      return(NA)
+      stop("maximum iterations reached")
+    }
   }
 
   #When allocations are ready, return result
